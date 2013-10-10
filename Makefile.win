@@ -1,0 +1,42 @@
+# Project: tank
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = J:\Dev-Cpp\Bin\g++.exe
+CC   = J:\Dev-Cpp\Bin\gcc.exe
+WINDRES = J:\Dev-Cpp\Bin\windres.exe
+RES  = 
+OBJ  = console_draw2.o kb_input2.o tank.o audio.o 新文件1.o $(RES)
+LINKOBJ  = console_draw2.o kb_input2.o tank.o audio.o 新文件1.o $(RES)
+LIBS =  -L"J:/Dev-Cpp/lib" -lwinmm  
+INCS =  -I"J:/Dev-Cpp/include" 
+CXXINCS =  -I"J:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"J:/Dev-Cpp/include/c++/3.4.2/backward"  -I"J:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"J:/Dev-Cpp/include/c++/3.4.2"  -I"J:/Dev-Cpp/include" 
+BIN  = tank.exe
+CXXFLAGS = $(CXXINCS)   -ansi
+CFLAGS = $(INCS)   -ansi
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before tank.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "tank.exe" $(LIBS)
+
+console_draw2.o: console_draw2.c
+	$(CC) -c console_draw2.c -o console_draw2.o $(CFLAGS)
+
+kb_input2.o: kb_input2.c
+	$(CC) -c kb_input2.c -o kb_input2.o $(CFLAGS)
+
+tank.o: tank.c
+	$(CC) -c tank.c -o tank.o $(CFLAGS)
+
+audio.o: audio.c
+	$(CC) -c audio.c -o audio.o $(CFLAGS)
+
+新文件1.o: 新文件1.c
+	$(CC) -c 新文件1.c -o 新文件1.o $(CFLAGS)
